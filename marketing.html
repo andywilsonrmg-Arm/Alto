@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Marketing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #1a1a1a;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            color: white;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none; 
+            gap: 25px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #cccccc;
+        }
+        .hero-section {
+            text-align: center;
+            padding-top: 100px;
+            background-color: white;
+        }
+
+        .hero-section h1 {
+            font-size: 42px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 18px;
+            color: #666;
+        }
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50; 
+            --bg-dark: #1a1a1a; 
+            --card-bg: #252525;
+            --text-light: #f4f4f4;
+            --text-gray: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+        }
+        .marketing-section {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 80px 20px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: left;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+            cursor: default;
+
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUpEntrance 0.8s ease-out forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-card:nth-child(2) { animation-delay: 0.4s; }
+        .service-card:nth-child(3) { animation-delay: 0.6s; }
+        .service-card:nth-child(4) { animation-delay: 0.8s; }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: transform 0.4s ease;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .card-desc {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px); 
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2); 
+            border-color: rgba(52, 152, 219, 0.3);
+        }
+
+        .service-card:hover .card-icon {
+            transform: rotateY(180deg) scale(1.1); 
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-color);
+            transform: scaleX(0); 
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+             transform: scaleX(1); 
+        }
+
+        @keyframes fadeUpEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title { font-size: 2rem; }
+            .services-grid { grid-template-columns: 1fr; padding: 0 20px;}
+        }
+        .site-footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 70px 0 20px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+    
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #888; 
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .footer-col p {
+            color: #bbbbbb;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #333; 
+            text-align: center;
+            color: #666;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">ServiceHub</div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="web-design.html">Web Design</a></li>
+            <li><a href="mobile-apps.html">Mobile Apps</a></li>
+            <li><a href="graphic-design.html">Graphic Design</a></li>
+            <li><a href="marketing.html">Marketing</a></li>
+        </ul>
+    </nav>
+    <section class="hero-section">
+        <h1>Bienvenue dans le service Marketing</h1>
+        <p>Notre équipe de marketing vous accompagne dans vos projets de communication et de développement commercial.</p>
+    </section>
+
+    <section class="marketing-section">
+        <h2 class="section-title">Accompagnement Marketing 360°</h2>
+        <p class="section-subtitle">
+            Nous transformons votre vision en résultats. Une approche complète, de la stratégie à l'exécution, pour propulser votre croissance digitale.
+        </p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="card-icon">🧐</div>
+                <h3 class="card-title">1. Audit & Stratégie</h3>
+                <p class="card-desc">
+                    Analyse approfondie de votre marché, de la concurrence et de vos performances actuelles. Définition d'un plan d'action sur-mesure et d'objectifs KPIs clairs.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon">🎨</div>
+                <h3 class="card-title">2. Branding & Création</h3>
+                <p class="card-desc">
+                    Conception d'une identité visuelle forte et mémorable. Création de contenus engageants (visuels, vidéos, copywriting) adaptés à vos cibles.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon">🚀</div>
+                <h3 class="card-title">3. Activation Digitale</h3>
+                <p class="card-desc">
+                    Déploiement des campagnes : Référencement naturel (SEO), publicité payante (Google/Social Ads), gestion des réseaux sociaux et e-mailing automation.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon">📈</div>
+                <h3 class="card-title">4. Analyse & Optimisation</h3>
+                <p class="card-desc">
+                    Suivi continu des performances via des dashboards personnalisés. Analyse des données pour ajuster les stratégies et maximiser votre ROI en temps réel.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            
+            <div class="footer-col">
+                <h3>ServiceHub</h3>
+                <p>
+                    One team. Four services. One clean website. 
+                    Nous aidons les entreprises à grandir grâce à des solutions digitales sur-mesure et performantes.
+                </p>
+                <div class="social-links">
+                    <a href="#">FB</a>
+                    <a href="#">IG</a>
+                    <a href="#">LN</a>
+                    <a href="#">X</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Carrières</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Nos Services</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Web Design</a></li>
+                    <li><a href="mobile-apps.html">Mobile Apps</a></li>
+                    <li><a href="graphic-design.html">Graphic Design</a></li>
+                    <li><a href="marketing.html">Marketing 360°</a></li>
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Nous contacter</h4>
+                <ul class="footer-links">
+                    <li><a href="#">hello@servicehub.com</a></li>
+                    <li><a href="#">+261 32 34 456 89</a></li>
+                    <li><a href="#">Tana 101</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 ServiceHub. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

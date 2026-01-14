@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTO | Home - À Propos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --alto-blue: #004e92;
+            --alto-dark: #000428;
+            --light-grey: #f8f9fa;
+            --white: #ffffff;
+            --text-grey: #636e72;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--light-grey);
+            color: #333;
+        }
+
+        /* --- NAVBAR (MAINTENUE) --- */
+        .navbar {
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px; 
+            text-decoration: none; 
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)); 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 50%;
+        }
+
+        .logo span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800; 
+            font-size: 1.6rem;
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #004e92, #00c6ff); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .logo:hover img { transform: rotate(-5deg) scale(1.1); }
+        .logo:hover span { filter: brightness(1.2); }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        .nav-menu li a.active { color: var(--alto-blue); border-bottom: 2px solid var(--alto-blue); }
+        .nav-menu li a:hover { color: var(--alto-blue); }
+
+        .contact-btn {
+            background: var(--alto-blue);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 4px;
+        }
+
+        /* --- CONTENU HOME --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .home-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .home-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            color: var(--alto-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .home-content span.highlight {
+            color: var(--alto-blue);
+        }
+
+        .home-content p {
+            font-size: 1.1rem;
+            color: var(--text-grey);
+            margin-bottom: 30px;
+        }
+
+        .img-placeholder-home {
+            width: 100%;
+            height: 450px;
+            background: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 20px 20px 0px rgba(0, 78, 146, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #bbb;
+        }
+
+        .img-placeholder-home img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- SECTION STATS --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .stat-card h4 { font-size: 2rem; color: var(--alto-blue); }
+        .stat-card p { font-size: 0.9rem; color: var(--text-grey); }
+
+        /* --- FOOTER COMPLET --- */
+        .footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 80px 0 20px;
+            margin-top: 100px;
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-brand p { color: #aaa; line-height: 1.6; }
+
+        .footer-links h4 {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: -8px;
+            width: 40px; height: 2px;
+            background: var(--alto-blue);
+        }
+
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 12px; }
+        .footer-links ul li a { color: #aaa; text-decoration: none; transition: 0.3s; }
+        .footer-links ul li a:hover { color: var(--white); padding-left: 5px; }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .home-section, .footer-container { grid-template-columns: 1fr; }
+            .home-content { text-align: center; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="/Altologo1.png" alt="Logo Alto">
+                <span>ALTO</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="web design.html">Web Design</a></li>
+                <li><a href="index.html#mobile-apps">Mobile Apps</a></li>
+                <li><a href="index.html#graphic-design">Graphic Design</a></li>
+                <li><a href="marketing.html">Marketing</a></li>
+                <li><a href="#" class="contact-btn">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <section class="home-section">
+            <div class="home-content">
+                <h1>Bienvenue dans <br><span class="highlight">l'Espace Alto</span></h1>
+                <p>Nous concevons des expériences numériques qui captivent, inspirent et convertissent. Alto est votre partenaire stratégique pour une croissance durable dans le monde digital.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>150+</h4>
+                        <p>Clients Satisfaits</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>05+</h4>
+                        <p>Années d'Expertise</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>24/7</h4>
+                        <p>Support Premium</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-image">
+                <div class="img-placeholder-home">
+                    <span><img src="/Altoimg.png" ></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>ALTO.</h3>
+                <p>Expert en solutions digitales innovantes. Nous aidons les entreprises à se démarquer grâce à un design de pointe et des technologies modernes.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="index.html#web-design">Développement Web</a></li>
+                    <li><a href="index.html#mobile-apps">Applications Mobile</a></li>
+                    <li><a href="index.html#graphic-design">Design Graphique</a></li>
+                    <li><a href="index.html#marketing">Stratégie Marketing</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Aide & FAQ</a></li>
+                    <li><a href="#">Contactez-nous</a></li>
+                    <li><a href="#">Vie privée</a></li>
+                    <li><a href="#">Termes & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <p style="color:#aaa; font-size: 0.9rem;">Email: contact@alto.fr</p>
+                <p style="color:#aaa; font-size: 0.9rem; margin-top: 10px;">Paris, France</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 ALTO Digital Solutions. Fait avec passion.
+        </div>
+    </footer>
+
+</body>
+</html>

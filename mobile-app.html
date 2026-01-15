@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alto | Mobile App Developers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* BASE STYLES (Matching your Home vibe) */
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        h1,
+        h2,
+        h3,
+        .logo span {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* NAVBAR */
+        
+        .navbar {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        /* HERO */
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('mobile-app-head.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        /* MAIN CONTENT */
+        
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .barre {
+            width: 60px;
+            height: 4px;
+            background: #3498db;
+            margin: 15px auto;
+        }
+        /* TEAM GRID (5 People) */
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .dev-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+        
+        .dev-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .dev-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #3498db;
+        }
+        
+        .dev-card h3 {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+        
+        .dev-card p {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+        /* 6 STARS */
+        
+        .stars {
+            color: #f1c40f;
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #1a1a1a;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Altologo1.png" alt="Logo Alto">
+                <span>ALTO</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="web design.html">Web Design</a></li>
+                <li><a href="mobile-apps.html" style="color: #3498db;">Mobile Apps</a></li>
+                <li><a href="graphic-design.html">Graphic Design</a></li>
+                <li><a href="marketing.html">Marketing</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Nos Développeurs Mobile</h1>
+    </header>
+
+    <main class="container">
+        <div class="section-title">
+            <h2>L'Équipe Mobile App</h2>
+            <div class="barre"></div>
+            <p>"I provide you a mobile app: customized, fast, and 6-star quality."</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="dev-card">
+                <img src="andy.jpeg" alt="Developer 1" class="dev-img">
+                <h3>Andy</h3>
+                <div class="stars">★★★★★★</div>
+                <p>"Expert iOS & Swift Specialist."</p>
+            </div>
+
+            <div class="dev-card">
+                <img src="sitraka.jpeg" alt="Developer 2" class="dev-img">
+                <h3>Sitraka</h3>
+                <div class="stars">★★★★★★</div>
+                <p>"Android & Kotlin master."</p>
+            </div>
+
+            <div class="dev-card">
+                <img src="safidy.jpeg" alt="Developer 3" class="dev-img">
+                <h3>Safidy</h3>
+                <div class="stars">★★★★★★</div>
+                <p>"Cross-platform Flutter pro."</p>
+            </div>
+
+            <div class="dev-card">
+                <img src="kevin.jpeg" alt="Developer 4" class="dev-img">
+                <h3>Kevin</h3>
+                <div class="stars">★★★★★★</div>
+                <p>"UI/UX for Mobile Specialist."</p>
+            </div>
+
+            <div class="dev-card">
+                <img src="josa.jpeg" alt="Developer 5" class="dev-img">
+                <h3>Josaphat</h3>
+                <div class="stars">★★★★★★</div>
+                <p>"Backend & API Integration."</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ALTO Digital - Excellence & Innovation</p>
+    </footer>
+
+</body>
+
+</html>
